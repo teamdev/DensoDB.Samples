@@ -36,7 +36,19 @@ namespace denso.twitterlike
       InitializeComponent();
 
       PrepareBindingSources();
+      PrepereMessageReceiving();
     }
+
+    private void PrepereMessageReceiving()
+    {
+      Session.StoreUpdated += new EventHandler(Session_StoreUpdated);
+    }
+
+    void Session_StoreUpdated(object sender, EventArgs e)
+    {
+      messagelistDataObject.ObjectInstance = _denso.Get<Message>().ToList();
+    }
+
 
     private void PrepareBindingSources()
     {
@@ -51,6 +63,8 @@ namespace denso.twitterlike
       // Create a new Object to store new message
       newmessageDataObject.ObjectInstance = new Message();
 
+
+      // Load the messagelist for the first time. 
       messagelistDataObject.ObjectType = null;
       messagelistDataObject.ObjectInstance =  _denso.Get<Message>().ToList();
     }
@@ -64,9 +78,10 @@ namespace denso.twitterlike
         msg.Date = DateTime.Now;
         _denso.Set<Message>(newmessageDataObject.Data as Message);
       }
+
+
       // prepare a new object message to store next message. 
       newmessageDataObject.ObjectInstance = new Message();
-
     }
   }
 }

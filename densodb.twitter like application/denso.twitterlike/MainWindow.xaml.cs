@@ -50,6 +50,9 @@ namespace denso.twitterlike
 
       // Create a new Object to store new message
       newmessageDataObject.ObjectInstance = new Message();
+
+      messagelistDataObject.ObjectType = null;
+      messagelistDataObject.ObjectInstance =  _denso.Get<Message>().ToList();
     }
 
     private void btnSendMessage(object sender, RoutedEventArgs e)

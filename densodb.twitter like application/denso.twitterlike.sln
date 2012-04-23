@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencie
 		dependencies\DeNSo.Core.pdb = dependencies\DeNSo.Core.pdb
 		dependencies\DeNSo.Meta.dll = dependencies\DeNSo.Meta.dll
 		dependencies\DeNSo.Meta.pdb = dependencies\DeNSo.Meta.pdb
+		dependencies\DeNSo.P2P.dll = dependencies\DeNSo.P2P.dll
+		dependencies\DeNSo.P2P.pdb = dependencies\DeNSo.P2P.pdb
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "denso.twitterlike.model", "denso.twitterlike.model\denso.twitterlike.model.csproj", "{EFAFC59A-1698-49D2-BFDB-8A34375B2EFC}"

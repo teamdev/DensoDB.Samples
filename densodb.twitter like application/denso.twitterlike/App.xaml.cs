@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using DeNSo.Core;
-using System.IO;
+using DeNSo.P2P;
 
 namespace denso.twitterlike
 {
@@ -24,12 +25,15 @@ namespace denso.twitterlike
       if (!Directory.Exists(DeNSo.Core.Configuration.BasePath))
         Directory.CreateDirectory(DeNSo.Core.Configuration.BasePath);
 
+      EventP2PDispatcher.EnableP2PEventMesh();
     }
 
     protected override void OnExit(ExitEventArgs e)
     {
-      base.OnExit(e);
+      EventP2PDispatcher.StopP2PEventMesh();
       Session.ShutDown();
+      base.OnExit(e);
+      
     }
 
   }

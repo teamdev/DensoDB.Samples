@@ -1,11 +1,37 @@
-﻿<Window x:Class="denso.twitterlike.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="denso.twitterlike.MainWindow"
+  
+        xmlns:dt="clr-namespace:denso.twitterlike.model;assembly=denso.twitterlike.model"
         Title="MainWindow" Height="524" Width="277">
-    <Grid>
+
+  <Window.Resources>
+    <ObjectDataProvider x:Key="newMessage" ObjectType="{x:Type dt:Message}" />
+    <ObjectDataProvider x:Key="MessageList" />
+  </Window.Resources>
+  <Grid >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40"/>
+      <RowDefinition Height="0.6*"/>
+      <RowDefinition Height="0.4*"/>
+    </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="1*" />
       <ColumnDefinition Width="Auto" />
     </Grid.ColumnDefinitions>
+    <TextBox Margin="2,0,2,35" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Row="2" Text="{Binding Body, Source={StaticResource newMessage}}">
+      <TextBox.BorderBrush>
+        <LinearGradientBrush EndPoint="0,20" MappingMode="Absolute" StartPoint="0,0">
+          <GradientStop Color="#FFABADB3" Offset="0.05"/>
+          <GradientStop Color="#FFE2E3EA" Offset="0.07"/>
+          <GradientStop Color="#FF03284D" Offset="1"/>
+        </LinearGradientBrush>
+      </TextBox.BorderBrush>
+    </TextBox>
+    <GridSplitter HorizontalAlignment="Stretch" Height="3" Margin="0" Grid.Row="1" VerticalAlignment="Bottom"/>
+    <Button Content="Send message" 
+            Click="btnSendMessage"
+            HorizontalAlignment="Right" Margin="0,0,8,8" Width="90" Grid.Row="2" VerticalAlignment="Bottom"/>
   </Grid>
 </Window>

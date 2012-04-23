@@ -11,17 +11,59 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using denso.twitterlike.model;
+using DeNSo.Core;
 
 namespace denso.twitterlike
 {
+
+  // This sample is not intended to show you WPF programming techniques, 
+  // so will not be used any programming pattern like MVVM. 
+
   /// <summary>
   /// Interaction logic for MainWindow.xaml
   /// </summary>
   public partial class MainWindow : Window
   {
+    private ObjectDataProvider newmessageDataObject;
+    private ObjectDataProvider messagelistDataObject;
+
+    // Create a new densodb session
+    private Session _denso = Session.New;
+
     public MainWindow()
     {
       InitializeComponent();
+
+      PrepareBindingSources();
+    }
+
+    private void PrepareBindingSources()
+    {
+      // Get references to ObjectDataProvider used in the sample. 
+      newmessageDataObject = this.Resources["newMessage"] as ObjectDataProvider;
+      messagelistDataObject = this.Resources["MessageList"] as ObjectDataProvider;
+
+      // I need to assign a DataObject Instance to my ObjectDataProvider, 
+      // but before that i have to remove the ObjectType set in XAML definition.       
+      newmessageDataObject.ObjectType = null;
+
+      // Create a new Object to store new message
+      newmessageDataObject.ObjectInstance = new Message();
+    }
+
+    private void btnSendMessage(object sender, RoutedEventArgs e)
+    {
+      // send the message to densodb and to p2p mesh. 
+      var msg = newmessageDataObject.Data as Message;
+      if (msg != null)
+      {
+        msg.Date = DateTime.Now;
+        _denso.Set<Message>(newmessageDataObject.Data as Message);
+      }
+      // prepare a new object message to store next message. 
+      newmessageDataObject.ObjectInstance = new Message();
+
     }
   }
 }

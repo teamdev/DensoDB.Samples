@@ -44,6 +44,12 @@
     <Compile Include="Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\densodb\DeNSo.Meta\DeNSo.Meta.csproj">
+      <Project>{FDBAC522-A00C-46A1-B197-FA9AC2788422}</Project>
+      <Name>DeNSo.Meta</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

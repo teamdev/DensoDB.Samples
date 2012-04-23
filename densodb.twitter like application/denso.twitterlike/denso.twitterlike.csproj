@@ -36,15 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DeNSo.Core">
-      <HintPath>..\dependencies\DeNSo.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DeNSo.Meta">
-      <HintPath>..\dependencies\DeNSo.Meta.dll</HintPath>
-    </Reference>
-    <Reference Include="DeNSo.P2P">
-      <HintPath>..\dependencies\DeNSo.P2P.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -102,6 +93,18 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\densodb\DeNSo.Core\DeNSo.Core.csproj">
+      <Project>{60B0B52B-2846-41DF-931D-24032CF4E9E8}</Project>
+      <Name>DeNSo.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\densodb\DeNSo.Meta\DeNSo.Meta.csproj">
+      <Project>{FDBAC522-A00C-46A1-B197-FA9AC2788422}</Project>
+      <Name>DeNSo.Meta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\densodb\DeNSo.P2P\DeNSo.P2P.csproj">
+      <Project>{1F4C5739-676D-4692-A325-9AA47B0CB880}</Project>
+      <Name>DeNSo.P2P</Name>
+    </ProjectReference>
     <ProjectReference Include="..\denso.twitterlike.model\denso.twitterlike.model.csproj">
       <Project>{EFAFC59A-1698-49D2-BFDB-8A34375B2EFC}</Project>
       <Name>denso.twitterlike.model</Name>

@@ -83,5 +83,10 @@ namespace denso.twitterlike
       // prepare a new object message to store next message. 
       newmessageDataObject.ObjectInstance = new Message();
     }
+
+    private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+      this.DragMove();
+    }
   }
 }

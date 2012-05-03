@@ -19,8 +19,8 @@ namespace denso.twitterlike
     {
       base.OnStartup(e);
 
-      Session.DefaultDataBase = "twitterlike";
-      DeNSo.Core.Configuration.BasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "densosamples");
+      Session.DefaultDataBase = "twitterlike" ;
+      DeNSo.Core.Configuration.BasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "densosamples/" + System.Diagnostics.Process.GetCurrentProcess().Id);
 
       if (!Directory.Exists(DeNSo.Core.Configuration.BasePath))
         Directory.CreateDirectory(DeNSo.Core.Configuration.BasePath);

@@ -26,6 +26,7 @@ namespace denso.twitterlike
         Directory.CreateDirectory(DeNSo.Core.Configuration.BasePath);
 
       EventP2PDispatcher.EnableP2PEventMesh();
+
     }
 
     protected override void OnExit(ExitEventArgs e)

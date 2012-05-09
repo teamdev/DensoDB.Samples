@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows;
 using DeNSo.Core;
 using DeNSo.P2P;
+using System.Net.PeerToPeer;
 
 namespace denso.twitterlike
 {
@@ -26,6 +27,7 @@ namespace denso.twitterlike
         Directory.CreateDirectory(DeNSo.Core.Configuration.BasePath);
 
       EventP2PDispatcher.EnableP2PEventMesh();
+      EventP2PDispatcher.MakeNodeAvaiableToPNRP(Cloud.Available);
 
     }
 
